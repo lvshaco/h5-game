@@ -52,6 +52,10 @@ export default class XMLHttpRequest {
     _responseHeader.set(this, {})
   }
 
+  addEventListener(ev, cb) {
+    this[`on${ev}`] = cb
+  }
+
   abort() {
     const myRequestTask =  _requestTask.get(this)
 
