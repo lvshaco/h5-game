@@ -14,8 +14,8 @@ useExample() {
     if [ "$N1" != "" ]  && [ "$N2" != "" ]; then
         sed -i '' "$N1,$N2 s/^/\/\//" "miniprogram/$file.js"
     fi
-    sed -i ''  -E '/import "mywindow"/{n;d;}' miniprogram/game.js
-    sed -i '' "/import \"mywindow\"/ a\\
+    sed -i ''  -E '/import ".\/mywindow"/{n;d;}' miniprogram/game.js
+    sed -i '' "/import \".\/mywindow\"/ a\\
 import \"$file\"" miniprogram/game.js
 }
 

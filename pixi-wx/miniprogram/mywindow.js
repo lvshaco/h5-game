@@ -1,4 +1,4 @@
-window.XMLDocument = require("./js/libs/xmldom/dom.js").Document;
+window.XMLDocument = require("./js/libs/xmldom/dom.js").Document
 //console.log("=======")
 //console.log(window.XMLDocument)
 //console.log("windows")

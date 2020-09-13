@@ -41827,6 +41827,5 @@ var PIXI = (function (exports) {
 
 }({}));
 PIXI.useDeprecated();
-window.PIXI = PIXI
 module.exports = PIXI
 //# sourceMappingURL=pixi.js.map

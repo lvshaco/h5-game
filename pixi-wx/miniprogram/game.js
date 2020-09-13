@@ -1,7 +1,9 @@
 import './js/libs/weapp-adapter'
 import './js/libs/symbol'
-import * as PIXI from "./js/libs/pixi"
+// ---------- pixi -----------
+import './mypixi'
 import "./js/libs/unsafe-eval"
-//import "./js/libs/pixi-tilemap"
-import "mywindow"
-import "./examples/js/mesh-and-shaders/shadertoy-mesh"
+import "./js/libs/pixi-spine"
+// ---------------------------
+import "./mywindow"
+import "./examples/js/plugin-spine/dragon"
