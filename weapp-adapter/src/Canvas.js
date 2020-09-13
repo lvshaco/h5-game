@@ -1,4 +1,3 @@
-import { HTMLCanvasElement, CanvasRenderingContext2D, WebGLRenderingContext } from './constructor'
 import HTMLElement from './HTMLElement'
 import document from './document'
 

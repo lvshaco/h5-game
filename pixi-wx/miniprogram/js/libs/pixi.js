@@ -3991,17 +3991,13 @@ var PIXI = (function (exports) {
 	                failIfMajorPerformanceCaveat: settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT,
 	            };
 	            try {
-					console.log("check support ...")
 	                if (!window.WebGLRenderingContext) {
-						console.log("check support 1")
-	                    //return false;
+	                    return false;
 	                }
 	                var canvas = document.createElement('canvas');
 	                var gl = (canvas.getContext('webgl', contextOptions)
 	                    || canvas.getContext('experimental-webgl', contextOptions));
-					console.log("check support 2", gl)
 	                var success = !!(gl && gl.getContextAttributes().stencil);
-					console.log("check support 3", success)
 	                if (gl) {
 	                    var loseContext = gl.getExtension('WEBGL_lose_context');
 	                    if (loseContext) {
@@ -13726,7 +13722,7 @@ var PIXI = (function (exports) {
 	     */
 	    function ImageResource(source, options) {
 	        var _this = this;
-	        options = options || {};
+			options = options || {};
 	        if (!(source instanceof HTMLImageElement)) {
 	            var imageElement = new Image();
 	            BaseImageResource.crossOrigin(imageElement, source, options.crossorigin);
@@ -41825,7 +41821,5 @@ var PIXI = (function (exports) {
 }({}));
 PIXI.useDeprecated();
 window.PIXI = PIXI
-console.log("+++++")
-console.log(PIXI)
 module.exports = PIXI
 //# sourceMappingURL=pixi.js.map

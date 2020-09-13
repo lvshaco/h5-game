@@ -124,7 +124,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.cancelAnimationFrame = exports.requestAnimationFrame = exports.clearInterval = exports.clearTimeout = exports.setInterval = exports.setTimeout = exports.canvas = exports.location = exports.localStorage = exports.TouchEvent = exports.WebGLRenderingContext = exports.HTMLVideoElement = exports.HTMLElement = exports.FileReader = exports.Audio = exports.Image = exports.WebSocket = exports.XMLHttpRequest = exports.navigator = exports.document = undefined;
+	exports.cancelAnimationFrame = exports.requestAnimationFrame = exports.clearInterval = exports.clearTimeout = exports.setInterval = exports.setTimeout = exports.canvas = exports.location = exports.localStorage = exports.TouchEvent = exports.WebGLRenderingContext = exports.HTMLVideoElement = exports.HTMLCanvasElement = exports.HTMLImageElement = exports.HTMLElement = exports.FileReader = exports.Audio = exports.Image = exports.WebSocket = exports.XMLHttpRequest = exports.navigator = exports.document = undefined;
 
 	var _WindowProperties = __webpack_require__(2);
 
@@ -138,47 +138,35 @@
 	  });
 	});
 
-	var _constructor = __webpack_require__(4);
-
-	Object.keys(_constructor).forEach(function (key) {
-	  if (key === "default" || key === "__esModule") return;
-	  Object.defineProperty(exports, key, {
-	    enumerable: true,
-	    get: function get() {
-	      return _constructor[key];
-	    }
-	  });
-	});
-
-	var _Canvas = __webpack_require__(10);
+	var _Canvas = __webpack_require__(4);
 
 	var _Canvas2 = _interopRequireDefault(_Canvas);
 
-	var _document2 = __webpack_require__(11);
+	var _document2 = __webpack_require__(10);
 
 	var _document3 = _interopRequireDefault(_document2);
 
-	var _navigator2 = __webpack_require__(18);
+	var _navigator2 = __webpack_require__(17);
 
 	var _navigator3 = _interopRequireDefault(_navigator2);
 
-	var _XMLHttpRequest2 = __webpack_require__(19);
+	var _XMLHttpRequest2 = __webpack_require__(18);
 
 	var _XMLHttpRequest3 = _interopRequireDefault(_XMLHttpRequest2);
 
-	var _WebSocket2 = __webpack_require__(20);
+	var _WebSocket2 = __webpack_require__(19);
 
 	var _WebSocket3 = _interopRequireDefault(_WebSocket2);
 
-	var _Image2 = __webpack_require__(12);
+	var _Image2 = __webpack_require__(11);
 
 	var _Image3 = _interopRequireDefault(_Image2);
 
-	var _Audio2 = __webpack_require__(13);
+	var _Audio2 = __webpack_require__(12);
 
 	var _Audio3 = _interopRequireDefault(_Audio2);
 
-	var _FileReader2 = __webpack_require__(21);
+	var _FileReader2 = __webpack_require__(20);
 
 	var _FileReader3 = _interopRequireDefault(_FileReader2);
 
@@ -186,23 +174,31 @@
 
 	var _HTMLElement3 = _interopRequireDefault(_HTMLElement2);
 
-	var _HTMLVideoElement2 = __webpack_require__(22);
+	var _HTMLImageElement2 = __webpack_require__(21);
+
+	var _HTMLImageElement3 = _interopRequireDefault(_HTMLImageElement2);
+
+	var _HTMLCanvasElement2 = __webpack_require__(22);
+
+	var _HTMLCanvasElement3 = _interopRequireDefault(_HTMLCanvasElement2);
+
+	var _HTMLVideoElement2 = __webpack_require__(23);
 
 	var _HTMLVideoElement3 = _interopRequireDefault(_HTMLVideoElement2);
 
-	var _WebGLRenderingContext2 = __webpack_require__(23);
+	var _WebGLRenderingContext2 = __webpack_require__(24);
 
 	var _WebGLRenderingContext3 = _interopRequireDefault(_WebGLRenderingContext2);
 
-	var _TouchEvent2 = __webpack_require__(17);
+	var _TouchEvent2 = __webpack_require__(16);
 
 	var _TouchEvent3 = _interopRequireDefault(_TouchEvent2);
 
-	var _localStorage2 = __webpack_require__(24);
+	var _localStorage2 = __webpack_require__(25);
 
 	var _localStorage3 = _interopRequireDefault(_localStorage2);
 
-	var _location2 = __webpack_require__(25);
+	var _location2 = __webpack_require__(26);
 
 	var _location3 = _interopRequireDefault(_location2);
 
@@ -216,6 +212,8 @@
 	exports.Audio = _Audio3.default;
 	exports.FileReader = _FileReader3.default;
 	exports.HTMLElement = _HTMLElement3.default;
+	exports.HTMLImageElement = _HTMLImageElement3.default;
+	exports.HTMLCanvasElement = _HTMLCanvasElement3.default;
 	exports.HTMLVideoElement = _HTMLVideoElement3.default;
 	exports.WebGLRenderingContext = _WebGLRenderingContext3.default;
 	exports.TouchEvent = _TouchEvent3.default;
@@ -224,7 +222,9 @@
 
 
 	// 暴露全局的 canvas
-	var canvas = new _Canvas2.default();
+	//const canvas = new Canvas()
+	GameGlobal.screencanvas = GameGlobal.screencanvas || new _Canvas2.default();
+	var canvas = GameGlobal.screencanvas;
 
 	exports.canvas = canvas;
 	exports.setTimeout = setTimeout;
@@ -307,43 +307,46 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.HTMLCanvasElement = exports.HTMLImageElement = undefined;
+	exports.default = Canvas;
 
-	var _HTMLElement3 = __webpack_require__(5);
+	var _HTMLElement = __webpack_require__(5);
 
-	var _HTMLElement4 = _interopRequireDefault(_HTMLElement3);
+	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
+
+	var _document = __webpack_require__(10);
+
+	var _document2 = _interopRequireDefault(_document);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var hasModifiedCanvasPrototype = false;
+	var hasInit2DContextConstructor = false;
+	var hasInitWebGLContextConstructor = false;
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	function Canvas() {
+	  var canvas = wx.createCanvas();
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	  canvas.type = 'canvas';
 
-	var HTMLImageElement = exports.HTMLImageElement = function (_HTMLElement) {
-	  _inherits(HTMLImageElement, _HTMLElement);
+	  canvas.__proto__.__proto__ = new _HTMLElement2.default('canvas');
 
-	  function HTMLImageElement() {
-	    _classCallCheck(this, HTMLImageElement);
+	  var _getContext = canvas.getContext;
 
-	    return _possibleConstructorReturn(this, (HTMLImageElement.__proto__ || Object.getPrototypeOf(HTMLImageElement)).call(this, 'img'));
-	  }
+	  canvas.getBoundingClientRect = function () {
+	    var ret = {
+	      top: 0,
+	      left: 0,
+	      width: window.innerWidth,
+	      height: window.innerHeight
+	    };
+	    return ret;
+	  };
 
-	  return HTMLImageElement;
-	}(_HTMLElement4.default);
+	  // pixi.js mapPositionToPoint hack
+	  canvas.__proto__.parentElement = true;
 
-	var HTMLCanvasElement = exports.HTMLCanvasElement = function (_HTMLElement2) {
-	  _inherits(HTMLCanvasElement, _HTMLElement2);
-
-	  function HTMLCanvasElement() {
-	    _classCallCheck(this, HTMLCanvasElement);
-
-	    return _possibleConstructorReturn(this, (HTMLCanvasElement.__proto__ || Object.getPrototypeOf(HTMLCanvasElement)).call(this, 'canvas'));
-	  }
-
-	  return HTMLCanvasElement;
-	}(_HTMLElement4.default);
+	  return canvas;
+	}
 
 /***/ }),
 /* 5 */
@@ -656,58 +659,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = Canvas;
-
-	var _constructor = __webpack_require__(4);
-
-	var _HTMLElement = __webpack_require__(5);
-
-	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
-
-	var _document = __webpack_require__(11);
-
-	var _document2 = _interopRequireDefault(_document);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var hasModifiedCanvasPrototype = false;
-	var hasInit2DContextConstructor = false;
-	var hasInitWebGLContextConstructor = false;
-
-	function Canvas() {
-	  var canvas = wx.createCanvas();
-
-	  canvas.type = 'canvas';
-
-	  canvas.__proto__.__proto__ = new _HTMLElement2.default('canvas');
-
-	  var _getContext = canvas.getContext;
-
-	  canvas.getBoundingClientRect = function () {
-	    var ret = {
-	      top: 0,
-	      left: 0,
-	      width: window.innerWidth,
-	      height: window.innerHeight
-	    };
-	    return ret;
-	  };
-
-	  // pixi.js mapPositionToPoint hack
-	  canvas.__proto__.parentElement = true;
-
-	  return canvas;
-	}
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
 
 	var _window = __webpack_require__(1);
 
@@ -717,19 +668,19 @@
 
 	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
 
-	var _Image = __webpack_require__(12);
+	var _Image = __webpack_require__(11);
 
 	var _Image2 = _interopRequireDefault(_Image);
 
-	var _Audio = __webpack_require__(13);
+	var _Audio = __webpack_require__(12);
 
 	var _Audio2 = _interopRequireDefault(_Audio);
 
-	var _Canvas = __webpack_require__(10);
+	var _Canvas = __webpack_require__(4);
 
 	var _Canvas2 = _interopRequireDefault(_Canvas);
 
-	__webpack_require__(16);
+	__webpack_require__(15);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -842,7 +793,7 @@
 	exports.default = document;
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -858,7 +809,7 @@
 	}
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -869,7 +820,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _HTMLAudioElement2 = __webpack_require__(14);
+	var _HTMLAudioElement2 = __webpack_require__(13);
 
 	var _HTMLAudioElement3 = _interopRequireDefault(_HTMLAudioElement2);
 
@@ -1026,7 +977,7 @@
 	exports.default = Audio;
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1035,7 +986,7 @@
 	  value: true
 	});
 
-	var _HTMLMediaElement2 = __webpack_require__(15);
+	var _HTMLMediaElement2 = __webpack_require__(14);
 
 	var _HTMLMediaElement3 = _interopRequireDefault(_HTMLMediaElement2);
 
@@ -1062,7 +1013,7 @@
 	exports.default = HTMLAudioElement;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1120,15 +1071,15 @@
 	exports.default = HTMLMediaElement;
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(17);
+	__webpack_require__(16);
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1141,7 +1092,7 @@
 
 	var window = _interopRequireWildcard(_window);
 
-	var _document = __webpack_require__(11);
+	var _document = __webpack_require__(10);
 
 	var _document2 = _interopRequireDefault(_document);
 
@@ -1188,7 +1139,7 @@
 	wx.onTouchCancel(touchEventHandlerFactory('touchcancel'));
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1221,7 +1172,7 @@
 	exports.default = navigator;
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -1414,7 +1365,7 @@
 	exports.default = XMLHttpRequest;
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -1534,7 +1485,7 @@
 	exports.default = WebSocket;
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1566,6 +1517,37 @@
 	exports.default = FileReader;
 
 /***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _HTMLElement = __webpack_require__(5);
+
+	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var imageConstructor = wx.createImage().constructor;
+
+	// imageConstructor.__proto__.__proto__ = new HTMLElement();
+
+	// import HTMLElement from './HTMLElement';
+
+	// export default class HTMLImageElement extends HTMLElement
+	// {
+	//     constructor(){
+	//         super('img')
+	//     }
+	// };
+
+	exports.default = imageConstructor;
+
+/***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1575,7 +1557,45 @@
 	  value: true
 	});
 
-	var _HTMLMediaElement2 = __webpack_require__(15);
+	var _Canvas = __webpack_require__(4);
+
+	var _Canvas2 = _interopRequireDefault(_Canvas);
+
+	var _HTMLElement = __webpack_require__(5);
+
+	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// import HTMLElement from './HTMLElement';
+
+	// export default class HTMLCanvasElement extends HTMLElement
+	// {
+	//     constructor(){
+	//         super('canvas')
+	//     }
+	// };
+
+	GameGlobal.screencanvas = GameGlobal.screencanvas || new _Canvas2.default();
+	var canvas = GameGlobal.screencanvas;
+
+	var canvasConstructor = canvas.constructor;
+
+	// canvasConstructor.__proto__.__proto__ = new HTMLElement();
+
+	exports.default = canvasConstructor;
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _HTMLMediaElement2 = __webpack_require__(14);
 
 	var _HTMLMediaElement3 = _interopRequireDefault(_HTMLMediaElement2);
 
@@ -1602,7 +1622,7 @@
 	exports.default = HTMLVideoElement;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1622,7 +1642,7 @@
 	exports.default = WebGLRenderingContext;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1661,7 +1681,7 @@
 	exports.default = localStorage;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	'use strict';

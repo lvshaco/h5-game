@@ -8,16 +8,19 @@ export Image from './Image'
 export Audio from './Audio'
 export FileReader from './FileReader'
 export HTMLElement from './HTMLElement'
+export HTMLImageElement from './HTMLImageElement'
+export HTMLCanvasElement from './HTMLCanvasElement' 
 export HTMLVideoElement from './HTMLVideoElement'
 export WebGLRenderingContext from './WebGLRenderingContext'
 export TouchEvent from './EventIniter/TouchEvent'
 export localStorage from './localStorage'
 export location from './location'
 export * from './WindowProperties'
-export * from './constructor'
 
 // 暴露全局的 canvas
-const canvas = new Canvas()
+//const canvas = new Canvas()
+GameGlobal.screencanvas = GameGlobal.screencanvas || new Canvas()
+const canvas = GameGlobal.screencanvas
 
 export { canvas }
 export { setTimeout }
