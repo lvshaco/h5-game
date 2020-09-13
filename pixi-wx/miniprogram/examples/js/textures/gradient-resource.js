@@ -44,8 +44,8 @@ class GradientResource extends PIXI.resources.Resource {
     }
 }
 
-const app = new PIXI.Application({ antialias: true });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ antialias: true });
+//document.body.appendChild(app.view);
 
 const gradBaseTexture = new PIXI.BaseTexture(new GradientResource());
 // Here you can fake baseTexture size to avoid resizing all sprites

@@ -1,5 +1,5 @@
-const app = new PIXI.Application();
-document.body.appendChild(app.view);
+//const app = new PIXI.Application();
+//document.body.appendChild(app.view);
 
 // Inner radius of the circle
 const radius = 100;
@@ -30,7 +30,7 @@ function setup(loader, resources) {
     background.mask = focus;
 
     app.stage.interactive = true;
-    app.stage.on('mousemove', pointerMove);
+    app.stage.on('touchmove', pointerMove);
 
     function pointerMove(event) {
         focus.position.x = event.data.global.x - focus.width / 2;

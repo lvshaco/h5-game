@@ -3,8 +3,8 @@ Please note that this is not the most optimal way of doing pure shader generated
 Check the mesh version of example for more performant version if you need only shader generated content.
 * */
 
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x1099bb });
+//document.body.appendChild(app.view);
 
 app.loader
     .add('examples/assets/perlin.jpg', 'examples/assets/perlin.jpg')

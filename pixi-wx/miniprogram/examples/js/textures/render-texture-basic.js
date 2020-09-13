@@ -1,5 +1,5 @@
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x1099bb });
+//document.body.appendChild(app.view);
 
 const container = new PIXI.Container();
 app.stage.addChild(container);

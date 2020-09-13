@@ -1,5 +1,5 @@
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x1099bb });
+//document.body.appendChild(app.view);
 
 const basicText = new PIXI.Text('Basic text in pixi');
 basicText.x = 50;

@@ -1,5 +1,5 @@
-const app = new PIXI.Application();
-document.body.appendChild(app.view);
+//const app = new PIXI.Application();
+//document.body.appendChild(app.view);
 
 // Build geometry.
 const geometry = new PIXI.Geometry()

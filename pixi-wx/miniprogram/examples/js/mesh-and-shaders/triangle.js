@@ -1,5 +1,5 @@
-const app = new PIXI.Application();
-document.body.appendChild(app.view);
+//const app = new PIXI.Application();
+//document.body.appendChild(app.view);
 
 const geometry = new PIXI.Geometry()
     .addAttribute('aVertexPosition', [-100, -50, 100, -50, 0, 100]);

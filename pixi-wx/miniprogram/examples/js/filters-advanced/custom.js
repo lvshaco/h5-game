@@ -1,5 +1,5 @@
-const app = new PIXI.Application();
-document.body.appendChild(app.view);
+//const app = new PIXI.Application();
+//document.body.appendChild(app.view);
 
 // Create background image
 const background = PIXI.Sprite.from('examples/assets/bg_grass.jpg');

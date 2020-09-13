@@ -1,5 +1,5 @@
-const app = new PIXI.Application({ antialias: true });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ antialias: true });
+//document.body.appendChild(app.view);
 
 const sprite = PIXI.Sprite.from('examples/assets/bg_rotate.jpg');
 

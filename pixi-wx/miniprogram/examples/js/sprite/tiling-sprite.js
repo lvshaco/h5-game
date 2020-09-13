@@ -1,5 +1,5 @@
-const app = new PIXI.Application();
-document.body.appendChild(app.view);
+//const app = new PIXI.Application();
+//document.body.appendChild(app.view);
 
 // create a texture from an image path
 const texture = PIXI.Texture.from('examples/assets/p2.jpeg');

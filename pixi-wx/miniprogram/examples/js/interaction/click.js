@@ -1,5 +1,5 @@
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x1099bb });
+//document.body.appendChild(app.view);
 
 // Scale mode for all textures, will retain pixelation
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;

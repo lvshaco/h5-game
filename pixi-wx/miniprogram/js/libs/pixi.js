@@ -36015,7 +36015,8 @@ var PIXI = (function (exports) {
 	        // Make it easier to replace a font
 	        if (BitmapFont.available[name] !== undefined) {
 	            BitmapFont.uninstall(name);
-	        }
+			}
+			console.log("BitmapFont =====:", name, font)
 	        BitmapFont.available[name] = font;
 	        return font;
 	    };

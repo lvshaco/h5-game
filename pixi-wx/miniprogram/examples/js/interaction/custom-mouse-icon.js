@@ -1,5 +1,5 @@
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x1099bb });
+//document.body.appendChild(app.view);
 
 // Css style for icons
 const defaultIcon = "url('examples/assets/bunny.png'),auto";

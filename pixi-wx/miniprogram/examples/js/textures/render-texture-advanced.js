@@ -1,5 +1,5 @@
-const app = new PIXI.Application();
-document.body.appendChild(app.view);
+//const app = new PIXI.Application();
+//document.body.appendChild(app.view);
 
 // create two render textures... these dynamic textures will be used to draw the scene into itself
 let renderTexture = PIXI.RenderTexture.create(

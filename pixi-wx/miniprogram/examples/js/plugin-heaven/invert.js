@@ -1,7 +1,7 @@
 // the plugin is here: https://github.com/gameofbombs/pixi-heaven/tree/master
 
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x1099bb });
+//document.body.appendChild(app.view);
 
 // create a new Sprite from an image path
 const bunny = new PIXI.heaven.Sprite(PIXI.Texture.from('examples/assets/bunny.png'));
