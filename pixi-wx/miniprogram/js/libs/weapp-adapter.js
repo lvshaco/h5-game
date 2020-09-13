@@ -559,10 +559,10 @@
 /* 8 */
 /***/ (function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -572,68 +572,74 @@
 	var _events = new WeakMap();
 
 	var EventTarget = function () {
-	  function EventTarget() {
-	    _classCallCheck(this, EventTarget);
+	    function EventTarget() {
+	        _classCallCheck(this, EventTarget);
 
-	    _events.set(this, {});
-	  }
-
-	  _createClass(EventTarget, [{
-	    key: 'addEventListener',
-	    value: function addEventListener(type, listener) {
-	      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-	      var events = _events.get(this);
-
-	      if (!events) {
-	        events = {};
-	        _events.set(this, events);
-	      }
-	      if (!events[type]) {
-	        events[type] = [];
-	      }
-	      events[type].push(listener);
-
-	      if (options.capture) {
-	        console.warn('EventTarget.addEventListener: options.capture is not implemented.');
-	      }
-	      if (options.once) {
-	        console.warn('EventTarget.addEventListener: options.once is not implemented.');
-	      }
-	      if (options.passive) {
-	        console.warn('EventTarget.addEventListener: options.passive is not implemented.');
-	      }
+	        _events.set(this, {});
 	    }
-	  }, {
-	    key: 'removeEventListener',
-	    value: function removeEventListener(type, listener) {
-	      var listeners = _events.get(this)[type];
 
-	      if (listeners && listeners.length > 0) {
-	        for (var i = listeners.length; i--; i > 0) {
-	          if (listeners[i] === listener) {
-	            listeners.splice(i, 1);
-	            break;
-	          }
+	    _createClass(EventTarget, [{
+	        key: "addEventListener",
+	        value: function addEventListener(type, listener) {
+	            var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+	            var events = _events.get(this);
+
+	            if (!events) {
+	                events = {};
+	                _events.set(this, events);
+	            }
+	            if (!events[type]) {
+	                events[type] = [];
+	            }
+	            events[type].push(listener);
+
+	            if (options.capture) {
+	                // console.warn('EventTarget.addEventListener: options.capture is not implemented.')
+	            }
+	            if (options.once) {
+	                // console.warn('EventTarget.addEventListener: options.once is not implemented.')
+	            }
+	            if (options.passive) {
+	                // console.warn('EventTarget.addEventListener: options.passive is not implemented.')
+	            }
 	        }
-	      }
-	    }
-	  }, {
-	    key: 'dispatchEvent',
-	    value: function dispatchEvent() {
-	      var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	    }, {
+	        key: "removeEventListener",
+	        value: function removeEventListener(type, listener) {
+	            var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-	      var listeners = _events.get(this)[event.type];
+	            var events = _events.get(this);
 
-	      if (listeners) {
-	        for (var i = 0; i < listeners.length; i++) {
-	          listeners[i](event);
+	            if (events) {
+	                var listeners = events[type];
+
+	                if (listeners && listeners.length > 0) {
+	                    for (var i = listeners.length; i--; i > 0) {
+	                        if (listeners[i] === listener) {
+	                            listeners.splice(i, 1);
+	                            break;
+	                        }
+	                    }
+	                }
+	            }
 	        }
-	      }
-	    }
-	  }]);
+	    }, {
+	        key: "dispatchEvent",
+	        value: function dispatchEvent() {
+	            var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-	  return EventTarget;
+	            var listeners = _events.get(this)[event.type];
+
+	            if (listeners) {
+	                for (var i = 0; i < listeners.length; i++) {
+	                    listeners[i](event);
+	                }
+	            }
+	        }
+	    }]);
+
+	    return EventTarget;
 	}();
 
 	exports.default = EventTarget;
@@ -1173,196 +1179,286 @@
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _EventTarget2 = __webpack_require__(8);
+
+	var _EventTarget3 = _interopRequireDefault(_EventTarget2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var _url = new WeakMap();
-	var _method = new WeakMap();
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var _requestHeader = new WeakMap();
 	var _responseHeader = new WeakMap();
 	var _requestTask = new WeakMap();
 
 	function _triggerEvent(type) {
-	  if (typeof this['on' + type] === 'function') {
-	    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	      args[_key - 1] = arguments[_key];
-	    }
+	    var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-	    this['on' + type].apply(this, args);
-	  }
+	    event.target = event.target || this;
+
+	    if (typeof this['on' + type] === 'function') {
+	        this['on' + type].call(this, event);
+	    }
 	}
 
 	function _changeReadyState(readyState) {
-	  this.readyState = readyState;
-	  _triggerEvent.call(this, 'readystatechange');
+	    var event = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+	    this.readyState = readyState;
+
+	    event.readyState = readyState;
+
+	    _triggerEvent.call(this, 'readystatechange', event);
 	}
 
-	var XMLHttpRequest = function () {
-	  // TODO 没法模拟 HEADERS_RECEIVED 和 LOADING 两个状态
-	  function XMLHttpRequest() {
-	    _classCallCheck(this, XMLHttpRequest);
+	function _isRelativePath(url) {
+	    return !/^(http|https|ftp|wxfile):\/\/.*/i.test(url);
+	}
 
-	    this.onabort = null;
-	    this.onerror = null;
-	    this.onload = null;
-	    this.onloadstart = null;
-	    this.onprogress = null;
-	    this.ontimeout = null;
-	    this.onloadend = null;
-	    this.onreadystatechange = null;
-	    this.readyState = 0;
-	    this.response = null;
-	    this.responseText = null;
-	    this.responseType = '';
-	    this.responseXML = null;
-	    this.status = 0;
-	    this.statusText = '';
-	    this.upload = {};
-	    this.withCredentials = false;
+	var XMLHttpRequest = function (_EventTarget) {
+	    _inherits(XMLHttpRequest, _EventTarget);
 
-	    _requestHeader.set(this, {
-	      'content-type': 'application/x-www-form-urlencoded'
-	    });
-	    _responseHeader.set(this, {});
-	  }
+	    function XMLHttpRequest() {
+	        _classCallCheck(this, XMLHttpRequest);
 
-	  /*
-	   * TODO 这一批事件应该是在 XMLHttpRequestEventTarget.prototype 上面的
-	   */
+	        /*
+	         * TODO 这一批事件应该是在 XMLHttpRequestEventTarget.prototype 上面的
+	         */
+	        var _this = _possibleConstructorReturn(this, (XMLHttpRequest.__proto__ || Object.getPrototypeOf(XMLHttpRequest)).call(this));
 
+	        _this.onabort = null;
+	        _this.onerror = null;
+	        _this.onload = null;
+	        _this.onloadstart = null;
+	        _this.onprogress = null;
+	        _this.ontimeout = null;
+	        _this.onloadend = null;
 
-	  _createClass(XMLHttpRequest, [{
-	    key: 'addEventListener',
-	    value: function addEventListener(ev, cb) {
-	      this['on' + ev] = cb;
-	    }
-	  }, {
-	    key: 'abort',
-	    value: function abort() {
-	      var myRequestTask = _requestTask.get(this);
+	        _this.onreadystatechange = null;
+	        _this.readyState = 0;
+	        _this.response = null;
+	        _this.responseText = null;
+	        _this.responseType = 'text';
+	        _this.dataType = 'string';
+	        _this.responseXML = null;
+	        _this.status = 0;
+	        _this.statusText = '';
+	        _this.upload = {};
+	        _this.withCredentials = false;
 
-	      if (myRequestTask) {
-	        myRequestTask.abort();
-	      }
-	    }
-	  }, {
-	    key: 'getAllResponseHeaders',
-	    value: function getAllResponseHeaders() {
-	      var responseHeader = _responseHeader.get(this);
-
-	      return Object.keys(responseHeader).map(function (header) {
-	        return header + ': ' + responseHeader[header];
-	      }).join('\n');
-	    }
-	  }, {
-	    key: 'getResponseHeader',
-	    value: function getResponseHeader(header) {
-	      return _responseHeader.get(this)[header];
-	    }
-	  }, {
-	    key: 'open',
-	    value: function open(method, url /* async, user, password 这几个参数在小程序内不支持*/) {
-	      _method.set(this, method);
-	      _url.set(this, url);
-	      _changeReadyState.call(this, XMLHttpRequest.OPENED);
-	    }
-	  }, {
-	    key: 'overrideMimeType',
-	    value: function overrideMimeType() {}
-	  }, {
-	    key: 'send',
-	    value: function send() {
-	      var _this = this;
-
-	      var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-	      if (this.readyState !== XMLHttpRequest.OPENED) {
-	        throw new Error("Failed to execute 'send' on 'XMLHttpRequest': The object's state must be OPENED.");
-	      } else {
-	        wx.request({
-	          data: data,
-	          url: _url.get(this),
-	          method: _method.get(this),
-	          header: _requestHeader.get(this),
-	          responseType: this.responseType,
-	          success: function success(_ref) {
-	            var data = _ref.data,
-	                statusCode = _ref.statusCode,
-	                header = _ref.header;
-
-	            if (typeof data !== 'string' && !(data instanceof ArrayBuffer)) {
-	              try {
-	                data = JSON.stringify(data);
-	              } catch (e) {
-	                data = data;
-	              }
-	            }
-
-	            _this.status = statusCode;
-	            _responseHeader.set(_this, header);
-	            _triggerEvent.call(_this, 'loadstart');
-	            _changeReadyState.call(_this, XMLHttpRequest.HEADERS_RECEIVED);
-	            _changeReadyState.call(_this, XMLHttpRequest.LOADING);
-
-	            _this.response = data;
-
-	            if (data instanceof ArrayBuffer) {
-	              _this.responseText = '';
-	              var bytes = new Uint8Array(data);
-	              var len = bytes.byteLength;
-
-	              for (var i = 0; i < len; i++) {
-	                _this.responseText += String.fromCharCode(bytes[i]);
-	              }
-	            } else {
-	              _this.responseText = data;
-	            }
-	            _changeReadyState.call(_this, XMLHttpRequest.DONE);
-	            _triggerEvent.call(_this, 'load');
-	            _triggerEvent.call(_this, 'loadend');
-	          },
-	          fail: function fail(_ref2) {
-	            var errMsg = _ref2.errMsg;
-
-	            // TODO 规范错误
-	            if (errMsg.indexOf('abort') !== -1) {
-	              _triggerEvent.call(_this, 'abort');
-	            } else {
-	              _triggerEvent.call(_this, 'error', errMsg);
-	            }
-	            _triggerEvent.call(_this, 'loadend');
-	          }
+	        _requestHeader.set(_this, {
+	            'content-type': 'application/x-www-form-urlencoded'
 	        });
-	      }
+	        _responseHeader.set(_this, {});
+	        return _this;
 	    }
-	  }, {
-	    key: 'setRequestHeader',
-	    value: function setRequestHeader(header, value) {
-	      var myHeader = _requestHeader.get(this);
 
-	      myHeader[header] = value;
-	      _requestHeader.set(this, myHeader);
-	    }
-	  }]);
+	    _createClass(XMLHttpRequest, [{
+	        key: 'abort',
+	        value: function abort() {
+	            var myRequestTask = _requestTask.get(this);
 
-	  return XMLHttpRequest;
-	}();
+	            if (myRequestTask) {
+	                myRequestTask.abort();
+	            }
+	        }
+	    }, {
+	        key: 'getAllResponseHeaders',
+	        value: function getAllResponseHeaders() {
+	            var responseHeader = _responseHeader.get(this);
 
+	            return Object.keys(responseHeader).map(function (header) {
+	                return header + ': ' + responseHeader[header];
+	            }).join('\n');
+	        }
+	    }, {
+	        key: 'getResponseHeader',
+	        value: function getResponseHeader(header) {
+	            return _responseHeader.get(this)[header];
+	        }
+	    }, {
+	        key: 'open',
+	        value: function open(method, url /* async, user, password 这几个参数在小程序内不支持*/) {
+	            this._method = method;
+	            this._url = url;
+	            _changeReadyState.call(this, XMLHttpRequest.OPENED);
+	        }
+	    }, {
+	        key: 'overrideMimeType',
+	        value: function overrideMimeType() {}
+	    }, {
+	        key: 'send',
+	        value: function send() {
+	            var _this2 = this;
+
+	            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+	            if (this.readyState !== XMLHttpRequest.OPENED) {
+	                throw new Error("Failed to execute 'send' on 'XMLHttpRequest': The object's state must be OPENED.");
+	            } else {
+	                var url = this._url;
+	                var header = _requestHeader.get(this);
+	                var responseType = this.responseType;
+	                var dataType = this.dataType;
+
+	                var relative = _isRelativePath(url);
+	                var encoding = void 0;
+
+	                if (responseType === 'arraybuffer') {
+	                    // encoding = 'binary'
+	                } else {
+	                    encoding = 'utf8';
+	                }
+
+	                delete this.response;
+	                this.response = null;
+
+	                var onSuccess = function onSuccess(_ref) {
+	                    var data = _ref.data,
+	                        statusCode = _ref.statusCode,
+	                        header = _ref.header;
+
+	                    statusCode = statusCode === undefined ? 200 : statusCode;
+	                    if (typeof data !== 'string' && !(data instanceof ArrayBuffer)) {
+	                        try {
+	                            data = JSON.stringify(data);
+	                        } catch (e) {
+	                            data = data;
+	                        }
+	                    }
+
+	                    _this2.status = statusCode;
+	                    if (header) {
+	                        _responseHeader.set(_this2, header);
+	                    }
+	                    _triggerEvent.call(_this2, 'loadstart');
+	                    _changeReadyState.call(_this2, XMLHttpRequest.HEADERS_RECEIVED);
+	                    _changeReadyState.call(_this2, XMLHttpRequest.LOADING);
+
+	                    _this2.response = data;
+
+	                    if (data instanceof ArrayBuffer) {
+	                        Object.defineProperty(_this2, 'responseText', {
+	                            enumerable: true,
+	                            configurable: true,
+	                            get: function get() {
+	                                throw new Error("InvalidStateError : responseType is " + this.responseType);
+	                            }
+	                        });
+	                    } else {
+	                        _this2.responseText = data;
+	                    }
+	                    _changeReadyState.call(_this2, XMLHttpRequest.DONE);
+	                    _triggerEvent.call(_this2, 'load');
+	                    _triggerEvent.call(_this2, 'loadend');
+	                };
+
+	                var onFail = function onFail(_ref2) {
+	                    var errMsg = _ref2.errMsg;
+
+	                    // TODO 规范错误
+
+	                    if (errMsg.indexOf('abort') !== -1) {
+	                        _triggerEvent.call(_this2, 'abort');
+	                    } else {
+	                        _triggerEvent.call(_this2, 'error', {
+	                            message: errMsg
+	                        });
+	                    }
+	                    _triggerEvent.call(_this2, 'loadend');
+
+	                    if (relative) {
+	                        // 用户即使没监听error事件, 也给出相应的警告
+	                        console.warn(errMsg);
+	                    }
+	                };
+
+	                if (relative) {
+	                    var fs = wx.getFileSystemManager();
+
+	                    var options = {
+	                        'filePath': url,
+	                        'success': onSuccess,
+	                        'fail': onFail
+	                    };
+	                    if (encoding) {
+	                        options.encoding = encoding;
+	                    }
+	                    fs.readFile(options);
+	                    return;
+	                }
+
+	                wx.request({
+	                    data: data,
+	                    url: url,
+	                    method: this._method,
+	                    header: header,
+	                    dataType: dataType,
+	                    responseType: responseType,
+	                    success: onSuccess,
+	                    fail: onFail
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'setRequestHeader',
+	        value: function setRequestHeader(header, value) {
+	            var myHeader = _requestHeader.get(this);
+
+	            myHeader[header] = value;
+	            _requestHeader.set(this, myHeader);
+	        }
+	    }, {
+	        key: 'addEventListener',
+	        value: function addEventListener(type, listener) {
+	            var _this3 = this;
+
+	            if (typeof listener !== 'function') {
+	                return;
+	            }
+
+	            this['on' + type] = function () {
+	                var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	                event.target = event.target || _this3;
+	                listener.call(_this3, event);
+	            };
+	        }
+	    }, {
+	        key: 'removeEventListener',
+	        value: function removeEventListener(type, listener) {
+	            if (this['on' + type] === listener) {
+	                this['on' + type] = null;
+	            }
+	        }
+	    }]);
+
+	    return XMLHttpRequest;
+	}(_EventTarget3.default);
+
+	// TODO 没法模拟 HEADERS_RECEIVED 和 LOADING 两个状态
+
+
+	exports.default = XMLHttpRequest;
 	XMLHttpRequest.UNSEND = 0;
 	XMLHttpRequest.OPENED = 1;
 	XMLHttpRequest.HEADERS_RECEIVED = 2;
 	XMLHttpRequest.LOADING = 3;
 	XMLHttpRequest.DONE = 4;
-	exports.default = XMLHttpRequest;
 
 /***/ }),
 /* 19 */

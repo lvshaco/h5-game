@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <title>Hello World</title>
 </head>
-  <script src="pixi/pixi.min.js"></script>
 <body>
+  <script src="pixi/pixi.js"></script>
   <script type="text/javascript">
     let type = "WebGL"
     if(!PIXI.utils.isWebGLSupported()){
@@ -74,8 +74,8 @@ const parseMap = (map) =>
     return new Uint8Array( data )
 }
 
-const jsonPath = 'https://regl-project.github.io/regl/www/gallery/assets/map.json'
-const tilePath = 'https://regl-project.github.io/regl/www/gallery/assets/tiles.png'
+const jsonPath = 'images/map.json'//'https://regl-project.github.io/regl/www/gallery/assets/map.json'
+const tilePath = 'images/tiles.png'//'https://regl-project.github.io/regl/www/gallery/assets/tiles.png'
 
 const loader = new PIXI.Loader()
 .add([jsonPath, tilePath])

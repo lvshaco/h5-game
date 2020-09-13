@@ -160,8 +160,8 @@ const parseMap = (map) =>
     return new Uint8Array( data )
 }
 
-const jsonPath = 'http://192.168.99.100:8089/images/map.json'//'https://regl-project.github.io/regl/www/gallery/assets/map.json'
-const tilePath = 'http://192.168.99.100:8089/images/tiles.png'//'https://regl-project.github.io/regl/www/gallery/assets/tiles.png'
+const jsonPath = 'images/map.json'//'http://192.168.99.100:8089/images/map.json'//'https://regl-project.github.io/regl/www/gallery/assets/map.json'
+const tilePath = 'images/tiles.png'//'https://regl-project.github.io/regl/www/gallery/assets/tiles.png'
 
 const loader = new PIXI.Loader()
 .add([jsonPath, tilePath])
