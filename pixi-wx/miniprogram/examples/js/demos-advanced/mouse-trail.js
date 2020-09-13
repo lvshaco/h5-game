@@ -1,5 +1,5 @@
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x1099bb });
+//document.body.appendChild(app.view);
 
 // Get the texture for rope.
 const trailTexture = PIXI.Texture.from('examples/assets/trail.png');
@@ -30,10 +30,13 @@ rope.blendmode = PIXI.BLEND_MODES.ADD;
 app.stage.addChild(rope);
 
 // Listen for animate update
-app.ticker.add((delta) => {
+app.renderer.plugins.interaction.on('touchmove', (e) => {
+    const {data: {global: {x, y}}} = e;
+    console.log(x, y)
     // Read mouse points, this could be done also in mousemove/touchmove update. For simplicity it is done here for now.
     // When implementing this properly, make sure to implement touchmove as interaction plugins mouse might not update on certain devices.
-    const mouseposition = app.renderer.plugins.interaction.mouse.global;
+    const mouseposition = {x:x, y:y} //app.renderer.plugins.interaction.mouse.global;
+    //console.log(mouseposition.x)
 
     // Update the mouse values to history
     historyX.pop();
@@ -52,6 +55,32 @@ app.ticker.add((delta) => {
         p.y = iy;
     }
 });
+/*
+// Listen for animate update
+app.ticker.add((delta) => {
+    // Read mouse points, this could be done also in mousemove/touchmove update. For simplicity it is done here for now.
+    // When implementing this properly, make sure to implement touchmove as interaction plugins mouse might not update on certain devices.
+    const mouseposition = app.renderer.plugins.interaction.mouse.global;
+    //console.log(mouseposition.x)
+
+    // Update the mouse values to history
+    historyX.pop();
+    historyX.unshift(mouseposition.x);
+    historyY.pop();
+    historyY.unshift(mouseposition.y);
+    // Update the points to correspond with history.
+    for (let i = 0; i < ropeSize; i++) {
+        const p = points[i];
+
+        // Smooth the curve with cubic interpolation to prevent sharp edges.
+        const ix = cubicInterpolation(historyX, i / ropeSize * historySize);
+        const iy = cubicInterpolation(historyY, i / ropeSize * historySize);
+
+        p.x = ix;
+        p.y = iy;
+    }
+});
+*/
 
 /**
  * Cubic interpolation based on https://github.com/osuushi/Smooth.js

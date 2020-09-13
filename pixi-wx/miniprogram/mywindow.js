@@ -11,3 +11,5 @@ let app = new PIXI.Application({
     view: canvas
 });
 window.app = app
+console.log("========= document =======")
+console.log(document)

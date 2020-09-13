@@ -4,7 +4,7 @@ import HTMLVideoElement from './HTMLVideoElement'
 import Image from './Image'
 import Audio from './Audio'
 import Canvas from './Canvas'
-import './EventIniter/'
+import './EventIniter/index.js'
 
 const events = {}
 

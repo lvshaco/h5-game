@@ -1,7 +1,7 @@
-const app = new PIXI.Application({
-    width: 800, height: 600, backgroundColor: 0x1099bb, resolution: window.devicePixelRatio || 1,
-});
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({
+//    width: 800, height: 600, backgroundColor: 0x1099bb, resolution: window.devicePixelRatio || 1,
+//});
+//document.body.appendChild(app.view);
 
 app.loader
     .add('bg_grass', 'examples/assets/bg_grass.jpg')

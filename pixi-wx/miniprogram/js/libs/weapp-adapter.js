@@ -50,7 +50,7 @@
 
 	var _window = _interopRequireWildcard(_window2);
 
-	var _HTMLElement = __webpack_require__(5);
+	var _HTMLElement = __webpack_require__(10);
 
 	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
 
@@ -124,9 +124,24 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.cancelAnimationFrame = exports.requestAnimationFrame = exports.clearInterval = exports.clearTimeout = exports.setInterval = exports.setTimeout = exports.canvas = exports.location = exports.localStorage = exports.TouchEvent = exports.WebGLRenderingContext = exports.HTMLVideoElement = exports.HTMLCanvasElement = exports.HTMLImageElement = exports.HTMLElement = exports.FileReader = exports.Audio = exports.Image = exports.WebSocket = exports.XMLHttpRequest = exports.navigator = exports.document = undefined;
+	exports.cancelAnimationFrame = exports.requestAnimationFrame = exports.clearInterval = exports.clearTimeout = exports.setInterval = exports.setTimeout = exports.canvas = exports.location = exports.localStorage = exports.MouseEvent = exports.TouchEvent = exports.WebGLRenderingContext = exports.HTMLVideoElement = exports.HTMLCanvasElement = exports.HTMLImageElement = exports.HTMLElement = exports.FileReader = exports.Audio = exports.Image = exports.WebSocket = exports.XMLHttpRequest = exports.navigator = exports.document = undefined;
 
-	var _WindowProperties = __webpack_require__(2);
+	var _index = __webpack_require__(2);
+
+	Object.defineProperty(exports, 'TouchEvent', {
+	  enumerable: true,
+	  get: function get() {
+	    return _index.TouchEvent;
+	  }
+	});
+	Object.defineProperty(exports, 'MouseEvent', {
+	  enumerable: true,
+	  get: function get() {
+	    return _index.MouseEvent;
+	  }
+	});
+
+	var _WindowProperties = __webpack_require__(7);
 
 	Object.keys(_WindowProperties).forEach(function (key) {
 	  if (key === "default" || key === "__esModule") return;
@@ -138,67 +153,63 @@
 	  });
 	});
 
-	var _Canvas = __webpack_require__(4);
+	var _Canvas = __webpack_require__(9);
 
 	var _Canvas2 = _interopRequireDefault(_Canvas);
 
-	var _document2 = __webpack_require__(10);
+	var _document2 = __webpack_require__(14);
 
 	var _document3 = _interopRequireDefault(_document2);
 
-	var _navigator2 = __webpack_require__(18);
+	var _navigator2 = __webpack_require__(20);
 
 	var _navigator3 = _interopRequireDefault(_navigator2);
 
-	var _XMLHttpRequest2 = __webpack_require__(19);
+	var _XMLHttpRequest2 = __webpack_require__(21);
 
 	var _XMLHttpRequest3 = _interopRequireDefault(_XMLHttpRequest2);
 
-	var _WebSocket2 = __webpack_require__(20);
+	var _WebSocket2 = __webpack_require__(22);
 
 	var _WebSocket3 = _interopRequireDefault(_WebSocket2);
 
-	var _Image2 = __webpack_require__(13);
+	var _Image2 = __webpack_require__(17);
 
 	var _Image3 = _interopRequireDefault(_Image2);
 
-	var _Audio2 = __webpack_require__(14);
+	var _Audio2 = __webpack_require__(18);
 
 	var _Audio3 = _interopRequireDefault(_Audio2);
 
-	var _FileReader2 = __webpack_require__(21);
+	var _FileReader2 = __webpack_require__(23);
 
 	var _FileReader3 = _interopRequireDefault(_FileReader2);
 
-	var _HTMLElement2 = __webpack_require__(5);
+	var _HTMLElement2 = __webpack_require__(10);
 
 	var _HTMLElement3 = _interopRequireDefault(_HTMLElement2);
 
-	var _HTMLImageElement2 = __webpack_require__(22);
+	var _HTMLImageElement2 = __webpack_require__(24);
 
 	var _HTMLImageElement3 = _interopRequireDefault(_HTMLImageElement2);
 
-	var _HTMLCanvasElement2 = __webpack_require__(23);
+	var _HTMLCanvasElement2 = __webpack_require__(25);
 
 	var _HTMLCanvasElement3 = _interopRequireDefault(_HTMLCanvasElement2);
 
-	var _HTMLVideoElement2 = __webpack_require__(11);
+	var _HTMLVideoElement2 = __webpack_require__(15);
 
 	var _HTMLVideoElement3 = _interopRequireDefault(_HTMLVideoElement2);
 
-	var _WebGLRenderingContext2 = __webpack_require__(24);
+	var _WebGLRenderingContext2 = __webpack_require__(26);
 
 	var _WebGLRenderingContext3 = _interopRequireDefault(_WebGLRenderingContext2);
 
-	var _TouchEvent2 = __webpack_require__(17);
-
-	var _TouchEvent3 = _interopRequireDefault(_TouchEvent2);
-
-	var _localStorage2 = __webpack_require__(25);
+	var _localStorage2 = __webpack_require__(27);
 
 	var _localStorage3 = _interopRequireDefault(_localStorage2);
 
-	var _location2 = __webpack_require__(26);
+	var _location2 = __webpack_require__(28);
 
 	var _location3 = _interopRequireDefault(_location2);
 
@@ -216,7 +227,6 @@
 	exports.HTMLCanvasElement = _HTMLCanvasElement3.default;
 	exports.HTMLVideoElement = _HTMLVideoElement3.default;
 	exports.WebGLRenderingContext = _WebGLRenderingContext3.default;
-	exports.TouchEvent = _TouchEvent3.default;
 	exports.localStorage = _localStorage3.default;
 	exports.location = _location3.default;
 
@@ -243,9 +253,164 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _TouchEvent = __webpack_require__(3);
+
+	Object.defineProperty(exports, 'TouchEvent', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_TouchEvent).default;
+	  }
+	});
+
+	var _MouseEvent = __webpack_require__(5);
+
+	Object.defineProperty(exports, 'MouseEvent', {
+	  enumerable: true,
+	  get: function get() {
+	    return _interopRequireDefault(_MouseEvent).default;
+	  }
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _index = __webpack_require__(4);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var TouchEvent = function TouchEvent(type) {
+	  _classCallCheck(this, TouchEvent);
+
+	  this.touches = [];
+	  this.targetTouches = [];
+	  this.changedTouches = [];
+	  this.preventDefault = _index.noop;
+	  this.stopPropagation = _index.noop;
+
+	  this.type = type;
+	  this.target = window.canvas;
+	  this.currentTarget = window.canvas;
+	};
+
+	exports.default = TouchEvent;
+
+
+	function touchEventHandlerFactory(type) {
+	  return function (event) {
+	    var touchEvent = new TouchEvent(type);
+
+	    touchEvent.touches = event.touches;
+	    touchEvent.targetTouches = Array.prototype.slice.call(event.touches);
+	    touchEvent.changedTouches = event.changedTouches;
+	    touchEvent.timeStamp = event.timeStamp;
+	    document.dispatchEvent(touchEvent);
+	  };
+	}
+
+	wx.onTouchStart(touchEventHandlerFactory('touchstart'));
+	wx.onTouchMove(touchEventHandlerFactory('touchmove'));
+	wx.onTouchEnd(touchEventHandlerFactory('touchend'));
+	wx.onTouchCancel(touchEventHandlerFactory('touchcancel'));
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.noop = noop;
+	function noop() {}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _Event2 = __webpack_require__(6);
+
+	var _Event3 = _interopRequireDefault(_Event2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MouseEvent = function (_Event) {
+	    _inherits(MouseEvent, _Event);
+
+	    function MouseEvent(type) {
+	        _classCallCheck(this, MouseEvent);
+
+	        return _possibleConstructorReturn(this, (MouseEvent.__proto__ || Object.getPrototypeOf(MouseEvent)).call(this, type));
+	    }
+
+	    return MouseEvent;
+	}(_Event3.default);
+
+	exports.default = MouseEvent;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _util = __webpack_require__(4);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Event = function Event(type) {
+	  _classCallCheck(this, Event);
+
+	  this.cancelBubble = false;
+	  this.cancelable = false;
+	  this.target = null;
+	  this.timestampe = Date.now();
+	  this.preventDefault = _util.noop;
+	  this.stopPropagation = _util.noop;
+
+	  this.type = type;
+	};
+
+	exports.default = Event;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.performance = exports.ontouchend = exports.ontouchmove = exports.ontouchstart = exports.screen = exports.devicePixelRatio = exports.innerHeight = exports.innerWidth = undefined;
 
-	var _performance2 = __webpack_require__(3);
+	var _performance2 = __webpack_require__(8);
 
 	var _performance3 = _interopRequireDefault(_performance2);
 
@@ -270,7 +435,7 @@
 	exports.performance = _performance3.default;
 
 /***/ }),
-/* 3 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -299,7 +464,7 @@
 	exports.default = performance;
 
 /***/ }),
-/* 4 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -309,11 +474,11 @@
 	});
 	exports.default = Canvas;
 
-	var _HTMLElement = __webpack_require__(5);
+	var _HTMLElement = __webpack_require__(10);
 
 	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
 
-	var _document = __webpack_require__(10);
+	var _document = __webpack_require__(14);
 
 	var _document2 = _interopRequireDefault(_document);
 
@@ -349,7 +514,7 @@
 	}
 
 /***/ }),
-/* 5 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -360,13 +525,13 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _Element2 = __webpack_require__(6);
+	var _Element2 = __webpack_require__(11);
 
 	var _Element3 = _interopRequireDefault(_Element2);
 
-	var _util = __webpack_require__(9);
+	var _util = __webpack_require__(4);
 
-	var _WindowProperties = __webpack_require__(2);
+	var _WindowProperties = __webpack_require__(7);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -444,7 +609,7 @@
 	exports.default = HTMLElement;
 
 /***/ }),
-/* 6 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -453,7 +618,7 @@
 	  value: true
 	});
 
-	var _Node2 = __webpack_require__(7);
+	var _Node2 = __webpack_require__(12);
 
 	var _Node3 = _interopRequireDefault(_Node2);
 
@@ -484,7 +649,7 @@
 	exports.default = ELement;
 
 /***/ }),
-/* 7 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -495,7 +660,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _EventTarget2 = __webpack_require__(8);
+	var _EventTarget2 = __webpack_require__(13);
 
 	var _EventTarget3 = _interopRequireDefault(_EventTarget2);
 
@@ -556,7 +721,7 @@
 	exports.default = Node;
 
 /***/ }),
-/* 8 */
+/* 13 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -645,19 +810,7 @@
 	exports.default = EventTarget;
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.noop = noop;
-	function noop() {}
-
-/***/ }),
-/* 10 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -670,27 +823,27 @@
 
 	var window = _interopRequireWildcard(_window);
 
-	var _HTMLElement = __webpack_require__(5);
+	var _HTMLElement = __webpack_require__(10);
 
 	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
 
-	var _HTMLVideoElement = __webpack_require__(11);
+	var _HTMLVideoElement = __webpack_require__(15);
 
 	var _HTMLVideoElement2 = _interopRequireDefault(_HTMLVideoElement);
 
-	var _Image = __webpack_require__(13);
+	var _Image = __webpack_require__(17);
 
 	var _Image2 = _interopRequireDefault(_Image);
 
-	var _Audio = __webpack_require__(14);
+	var _Audio = __webpack_require__(18);
 
 	var _Audio2 = _interopRequireDefault(_Audio);
 
-	var _Canvas = __webpack_require__(4);
+	var _Canvas = __webpack_require__(9);
 
 	var _Canvas2 = _interopRequireDefault(_Canvas);
 
-	__webpack_require__(16);
+	__webpack_require__(2);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -805,7 +958,7 @@
 	exports.default = document;
 
 /***/ }),
-/* 11 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -814,7 +967,7 @@
 	    value: true
 	});
 
-	var _HTMLMediaElement2 = __webpack_require__(12);
+	var _HTMLMediaElement2 = __webpack_require__(16);
 
 	var _HTMLMediaElement3 = _interopRequireDefault(_HTMLMediaElement2);
 
@@ -869,7 +1022,7 @@
 	exports.default = HTMLVideoElement;
 
 /***/ }),
-/* 12 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -880,7 +1033,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _HTMLElement2 = __webpack_require__(5);
+	var _HTMLElement2 = __webpack_require__(10);
 
 	var _HTMLElement3 = _interopRequireDefault(_HTMLElement2);
 
@@ -927,7 +1080,7 @@
 	exports.default = HTMLMediaElement;
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -943,7 +1096,7 @@
 	}
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -954,7 +1107,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _HTMLAudioElement2 = __webpack_require__(15);
+	var _HTMLAudioElement2 = __webpack_require__(19);
 
 	var _HTMLAudioElement3 = _interopRequireDefault(_HTMLAudioElement2);
 
@@ -1111,7 +1264,7 @@
 	exports.default = Audio;
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1120,7 +1273,7 @@
 	  value: true
 	});
 
-	var _HTMLMediaElement2 = __webpack_require__(12);
+	var _HTMLMediaElement2 = __webpack_require__(16);
 
 	var _HTMLMediaElement3 = _interopRequireDefault(_HTMLMediaElement2);
 
@@ -1147,15 +1300,7 @@
 	exports.default = HTMLAudioElement;
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	__webpack_require__(17);
-
-/***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1164,67 +1309,7 @@
 	  value: true
 	});
 
-	var _window = __webpack_require__(1);
-
-	var window = _interopRequireWildcard(_window);
-
-	var _document = __webpack_require__(10);
-
-	var _document2 = _interopRequireDefault(_document);
-
-	var _util = __webpack_require__(9);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var TouchEvent = function TouchEvent(type) {
-	  _classCallCheck(this, TouchEvent);
-
-	  this.target = window.canvas;
-	  this.currentTarget = window.canvas;
-	  this.touches = [];
-	  this.targetTouches = [];
-	  this.changedTouches = [];
-	  this.preventDefault = _util.noop;
-	  this.stopPropagation = _util.noop;
-
-	  this.type = type;
-	};
-
-	exports.default = TouchEvent;
-
-
-	function touchEventHandlerFactory(type) {
-	  return function (event) {
-	    var touchEvent = new TouchEvent(type);
-
-	    touchEvent.touches = event.touches;
-	    touchEvent.targetTouches = Array.prototype.slice.call(event.touches);
-	    touchEvent.changedTouches = event.changedTouches;
-	    touchEvent.timeStamp = event.timeStamp;
-	    _document2.default.dispatchEvent(touchEvent);
-	  };
-	}
-
-	wx.onTouchStart(touchEventHandlerFactory('touchstart'));
-	wx.onTouchMove(touchEventHandlerFactory('touchmove'));
-	wx.onTouchEnd(touchEventHandlerFactory('touchend'));
-	wx.onTouchCancel(touchEventHandlerFactory('touchcancel'));
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _util = __webpack_require__(9);
+	var _util = __webpack_require__(4);
 
 	// TODO 需要 wx.getSystemInfo 获取更详细信息
 	var _wx$getSystemInfoSync = wx.getSystemInfoSync(),
@@ -1248,7 +1333,7 @@
 	exports.default = navigator;
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1259,7 +1344,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _EventTarget2 = __webpack_require__(8);
+	var _EventTarget2 = __webpack_require__(13);
 
 	var _EventTarget3 = _interopRequireDefault(_EventTarget2);
 
@@ -1531,7 +1616,7 @@
 	XMLHttpRequest.DONE = 4;
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -1651,7 +1736,7 @@
 	exports.default = WebSocket;
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1683,7 +1768,7 @@
 	exports.default = FileReader;
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1692,7 +1777,7 @@
 	  value: true
 	});
 
-	var _HTMLElement = __webpack_require__(5);
+	var _HTMLElement = __webpack_require__(10);
 
 	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
 
@@ -1714,7 +1799,7 @@
 	exports.default = imageConstructor;
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1723,11 +1808,11 @@
 	  value: true
 	});
 
-	var _Canvas = __webpack_require__(4);
+	var _Canvas = __webpack_require__(9);
 
 	var _Canvas2 = _interopRequireDefault(_Canvas);
 
-	var _HTMLElement = __webpack_require__(5);
+	var _HTMLElement = __webpack_require__(10);
 
 	var _HTMLElement2 = _interopRequireDefault(_HTMLElement);
 
@@ -1752,7 +1837,7 @@
 	exports.default = canvasConstructor;
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1772,7 +1857,7 @@
 	exports.default = WebGLRenderingContext;
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -1811,7 +1896,7 @@
 	exports.default = localStorage;
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports) {
 
 	'use strict';

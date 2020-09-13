@@ -1,7 +1,7 @@
 // Based somewhat on this article by Spicy Yoghurt
 // URL for further reading: https://spicyyoghurt.com/tutorials/html5-javascript-game-development/collision-detection-physics
-const app = new PIXI.Application({ backgroundColor: 0x111111 });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x111111 });
+//document.body.appendChild(app.view);
 
 // Options for how objects interact
 // How fast the red square moves

@@ -1,5 +1,5 @@
-const app = new PIXI.Application({ backgroundColor: 0x111111 });
-document.body.appendChild(app.view);
+//const app = new PIXI.Application({ backgroundColor: 0x111111 });
+//document.body.appendChild(app.view);
 
 let wait = false;
 let waiting = false;
@@ -14,7 +14,8 @@ function takeScreenshot() {
     wait = true;
     app.renderer.extract.canvas(app.stage).toBlob((b) => {
         const a = document.createElement('a');
-        document.body.append(a);
+        //document.body.append(a);
+        document.body.appendChild(a);
         a.download = 'screenshot';
         a.href = URL.createObjectURL(b);
         a.click();

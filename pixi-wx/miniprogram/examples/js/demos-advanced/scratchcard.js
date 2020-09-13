@@ -1,7 +1,7 @@
 // for this example you have to use mouse or touchscreen
 
-const app = new PIXI.Application();
-document.body.appendChild(app.view);
+//const app = new PIXI.Application();
+//document.body.appendChild(app.view);
 const { stage } = app;
 
 // prepare circle texture, that will be our brush
