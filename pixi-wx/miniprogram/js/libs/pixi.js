@@ -14174,7 +14174,6 @@ var PIXI = (function (exports) {
 	            // Override the source
 	            source = videoElement;
 			}
-			console.log("source:", source)
 	        _this = _super.call(this, source) || this;
 	        _this.noSubImage = true;
 	        /**
@@ -14425,11 +14424,6 @@ var PIXI = (function (exports) {
 	     * @return {boolean} `true` if video source
 	     */
 	    VideoResource.test = function (source, extension) {
-			console.log(source)
-			console.log(extension)
-	        if (source instanceof HTMLVideoElement) {
-				console.log("yYYYYYYYYY")
-			}
 	        return (source instanceof HTMLVideoElement)
 	            || VideoResource.TYPES.indexOf(extension) > -1;
 	    };
@@ -36016,7 +36010,6 @@ var PIXI = (function (exports) {
 	        if (BitmapFont.available[name] !== undefined) {
 	            BitmapFont.uninstall(name);
 			}
-			console.log("BitmapFont =====:", name, font)
 	        BitmapFont.available[name] = font;
 	        return font;
 	    };

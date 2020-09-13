@@ -24541,7 +24541,6 @@ var PIXI = (function (exports) {
 	    if (this.crossOrigin === false || typeof this.crossOrigin !== 'string') {
 	      this.crossOrigin = this._determineCrossOrigin(this.url);
 	    }
-		console.log("->load res:", this.loadType)
 	    switch (this.loadType) {
 	      case Resource.LOAD_TYPE.IMAGE:
 	        this.type = Resource.TYPE.IMAGE;
@@ -24569,10 +24568,8 @@ var PIXI = (function (exports) {
 
 	      default:
 	        if (useXdr && this.crossOrigin) {
-				console.log("loadXdr")
 	          this._loadXdr();
 	        } else {
-				console.log("loadXhr")
 	          this._loadXhr();
 	        }
 
@@ -24754,7 +24751,6 @@ var PIXI = (function (exports) {
 	    }
 
 	    var xhr = this.xhr = new XMLHttpRequest(); // set the request type and url
-console.log("this.url", this.url)
 	    xhr.open('GET', this.url, true);
 	    xhr.timeout = this.timeout; // load json as text and parse it ourselves. We do this because some browsers
 	    // *cough* safari *cough* can't deal with it.
