@@ -6,4 +6,4 @@ import "./js/libs/unsafe-eval"
 import "./js/libs/pixi-spine"
 // ---------------------------
 import "./mywindow"
-import "./examples/js/plugin-spine/dragon"
+import "./examples/js/gentex"
