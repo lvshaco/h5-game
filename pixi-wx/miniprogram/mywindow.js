@@ -1,4 +1,5 @@
-window.XMLDocument = require("./js/libs/xmldom/dom.js").Document
+import {Document} from "./js/libs/xmldom/dom"
+window.XMLDocument = Document
 //console.log("=======")
 //console.log(window.XMLDocument)
 //console.log("windows")
