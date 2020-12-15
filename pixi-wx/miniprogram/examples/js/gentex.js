@@ -46,21 +46,18 @@ function createTex() {
 }
 
 const tex = createTex();
-console.log(tex.width, tex.height)
 const sprite = new PIXI.Sprite(tex);
 sprite.scale.set(SCALE, SCALE)
-console.log(sprite.width, sprite.height)
 const x = (app.screen.width-sprite.width)/2
 const y = (app.screen.height-sprite.height)/2
-console.log(x, y)
 sprite.position.set(x, y);
-console.log(sprite.width, sprite.height)
-console.log(app.screen.width, app.screen.height)
-//sprite.width = 500;
-//sprite.height = 50;
 app.stage.addChild(sprite);
 
-//app.stage.on("touchstart", (e) => function() {
+//touch按stage区域（sprite大小）
+//app.stage.interactive = true
+//app.stage.touchstart = e => {
+
+//touch按整个屏幕
 app.renderer.plugins.interaction.on('touchstart', (e) => {
     console.log("touchstart")
     sprite.texture = createTex()

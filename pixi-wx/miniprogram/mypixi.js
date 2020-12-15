@@ -5,3 +5,4 @@
 //window.PIXI = require('./js/libs/pixi')
 import PIXI from "./js/libs/pixi"
 window.PIXI = PIXI
+window.__filters = PIXI.filters

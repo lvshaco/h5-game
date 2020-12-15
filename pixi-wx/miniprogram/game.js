@@ -4,6 +4,8 @@ import './js/libs/symbol'
 import './mypixi'
 import "./js/libs/unsafe-eval"
 import "./js/libs/pixi-spine"
+import './js/libs/pixi-tilemap'
+import './js/libs/puxi'
 // ---------------------------
 import "./mywindow"
-import "./examples/js/gentex"
+import "./examples/js/sprite/basic"

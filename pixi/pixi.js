@@ -21959,7 +21959,7 @@ var PIXI = (function (exports) {
 	         */
 	        _this.renderingToScreen = true;
 	        sayHello(_this.context.webGLVersion === 2 ? 'WebGL 2' : 'WebGL 1');
-	        _this.resize(_this.options.width, _this.options.height);
+			_this.resize(_this.options.width, _this.options.height);
 	        return _this;
 	    }
 	    /**

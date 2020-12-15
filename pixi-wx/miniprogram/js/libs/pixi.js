@@ -30852,7 +30852,7 @@ var PIXI = (function (exports) {
 	    * @param {PIXI.Renderer} renderer - The webgl renderer to use.
 	    */
 	    Sprite.prototype._render = function (renderer) {
-	        this.calculateVertices();
+			this.calculateVertices();
 	        renderer.batch.setObjectRenderer(renderer.plugins[this.pluginName]);
 	        renderer.plugins[this.pluginName].render(this);
 	    };
