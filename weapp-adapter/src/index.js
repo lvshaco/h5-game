@@ -4,6 +4,7 @@ import HTMLElement from './HTMLElement'
 const global = GameGlobal
 
 function inject () {
+    console.log("=============== adapter inject")
   _window.addEventListener = (type, listener) => {
     _window.document.addEventListener(type, listener)
   }
@@ -48,6 +49,29 @@ function inject () {
     window = global
     window.top = window.parent = window
   }
+    let focusCb
+    let blurCb
+    Object.defineProperty(window, "onfocus", {
+            get: function() {
+                return focusCb
+            },
+            set: function(cb) {
+                console.log("set onFocus ++")
+                wx.onShow(cb)
+                focusCb = cb
+            }
+        })
+    Object.defineProperty(window, "onblur", {
+            get: function() {
+                return blurCb
+            },
+            set: function(cb) {
+                console.log("set onBlur ++")
+                wx.onHide(cb)
+                blurCb = cb
+            }
+        })
+
 }
 
 if (!GameGlobal.__isAdapterInjected) {
